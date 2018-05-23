@@ -5,16 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.cccc.kotlinstudy.R
-import com.example.cccc.kotlinstudy.adapter.HomeAdapter
 import com.example.cccc.kotlinstudy.base.BaseFragment
 import com.example.cccc.kotlinstudy.bean.BannerResponse
 import com.example.cccc.kotlinstudy.bean.Datas
 import com.example.cccc.kotlinstudy.bean.HomeListResponse
-import com.example.cccc.kotlinstudy.presenter.HomeFragmentPresenterImpl
 import com.example.cccc.kotlinstudy.ui.view.HorizontalRecyclerView
 import com.example.cccc.kotlinstudy.view.CollectArticleView
 import com.example.cccc.kotlinstudy.view.HomeFragmentView
-import com.zhy.view.flowlayout.TagFlowLayout
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.home_banner.*
 
@@ -23,24 +20,11 @@ import kotlinx.android.synthetic.main.home_banner.*
  */
 class HomeFragment : BaseFragment(), HomeFragmentView, CollectArticleView {
 
-    /**main view*/
     private var mainView: View? = null
 
-    /**common data list*/
     private val datas = mutableListOf<Datas>()
 
     private lateinit var horizontalRecyclerView: HorizontalRecyclerView
-
-    private val homeFragmentPresenter: HomeFragmentPresenterImpl by lazy {
-        HomeFragmentPresenterImpl(this, this)
-    }
-
-    /**
-     * adapter
-     */
-    private val homeAdapter: HomeAdapter by lazy {
-        HomeAdapter(activity, datas)
-    }
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -57,8 +41,6 @@ class HomeFragment : BaseFragment(), HomeFragmentView, CollectArticleView {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-
-
     }
 
 
